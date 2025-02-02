@@ -1,0 +1,10 @@
+mad_dict:
+if not exists obj
+    makedir obj
+endif
+if not exists bin
+    makedir bin
+endif
+
+smake
+

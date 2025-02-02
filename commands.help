@@ -1,0 +1,18 @@
+{FGB GREEN}{BG BLACK}General Commands:{FG CYAN}
+[E]nd        End your turn
+[Q]uit       Quit to Main Menu
+
+{FGB GREEN}{BG BLACK}Modes:{FG CYAN}
+[O]rders     Enter Orders mode. Use this to move or attack
+             with the selected unit.
+
+[S]urvey     Enter Survey mode then use NumPad (1-8) to scroll
+             the map and look around.
+
+{FGB GREEN}{BG BLACK}Order Commands:{FG CYAN}
+NumPad (1-8) Move or attack with the selected unit.
+Space        Skip orders for selected unit.
+
+{FGB GREEN}{BG BLACK}Survey Commands:{FG CYAN}
+NumPad (1-8) Scroll the Map
+Space        Skip orders for the selected unit.

@@ -1,0 +1,10 @@
+**/*.o
+bin/
+obj/
+.idea/
+**/*.info
+**/*.tmp
+**/*.lnk
+client
+data/
+

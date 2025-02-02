@@ -1,0 +1,8 @@
+{FGB GREEN}{BG BLACK}Main Menu{FG CYAN}
+UP           Move the game selection up one line.
+DN           Move the game selection down one line.
+ENTER        Open the game details window to enter, join,
+             or do other actions for the selected game.
+[Q]uit       Quit to BBS.
+
+             
