@@ -103,7 +103,7 @@ void show_game_details(int game_type, GameFile *game) {
 
 void show_menu_options(BOOL is_host, BOOL is_in_game, GameFile *game, char *allowed_keys) {
     if (is_host) {
-        output("{CPOS 20 12}{FG GREEN}Select: {FGB WHITE}E{FG CYAN}nter Game, {FGB WHITE}D{FGB RED}elete Game{FG CYAN}, Go {FGB WHITE}B{FG CYAN}ack");
+        output("{CPOS 20 12}{FG GREEN}Select: {FGB BLUE}[E]nter Game [D]elete Game [B]ack");
         strcpy(allowed_keys, "REDB");
     }
     else if (is_in_game && game->state == OPEN) {
@@ -111,11 +111,11 @@ void show_menu_options(BOOL is_host, BOOL is_in_game, GameFile *game, char *allo
         strcpy(allowed_keys, "RELB");
     }
     else if (is_in_game) {
-        output("{CPOS 20 12}{FG GREEN}Select: {FGB WHITE}E{FG CYAN}nter Game, Go {FGB WHITE}B{FG CYAN}ack");
+        output("{CPOS 20 12}{FG GREEN}Select: {FGB BLUE}[E]]nter Game [B]ack");
         strcpy(allowed_keys, "REB");
     }
     else {
-        output("{CPOS 20 12}{FG GREEN}Select: {FGB WHITE}J{FG CYAN}oin Game, Go {FGB WHITE}B{FG CYAN}ack");
+        output("{CPOS 20 12}{FG GREEN}Select: {FGB BLUE}[J]oin Game [B]ack");
         strcpy(allowed_keys, "RJB");
     }
 }

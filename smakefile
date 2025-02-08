@@ -59,7 +59,7 @@ obj/game_manager.o: src/game_manager.c
 obj/map.o: src/map.c
     sc $(SCFLAGS) src/map.c  objectname=obj/map.o
 
-obj/map_renderer.o: src/map_renderer.o
+obj/map_renderer.o: src/map_renderer.c
     sc $(SCFLAGS) src/map_renderer.c  objectname=obj/map_renderer.o
 
 obj/help_viewer.o: src/help_viewer.c

@@ -1,4 +1,4 @@
-mad_dict:
+workspace:maddictator
 if not exists obj
     makedir obj
 endif

@@ -13,7 +13,7 @@ int num_games = 0;
 int selected_game_index = 0;
 
 void draw_game_list_ui(int game_type) {
-    output("{FG WHITE}{WINDOW 13 2 22 79 BLUE BLACK}{CPOS 13 3}{BG BLUE}{FG WHITE}");
+    output("{FGB BLUE}{WINDOW 13 2 22 79 BLUE BLACK}{CPOS 13 3}{BG BLUE}{FGB BLUE}");
 
     switch (game_type) {
         case 0:
@@ -27,13 +27,13 @@ void draw_game_list_ui(int game_type) {
             break;
     }
 
-    output("{CPOS 22 17}{FG CYAN}{BG BLUE}List Games: ");
-    output("{FGB WHITE}M{FGB BLUE}y Games, ");
-    output("{FGB WHITE}J{FGB BLUE}oinable Games, ");
-    output("{FGB WHITE}C{FGB BLUE}ompleted Games");
+    output("{CPOS 22 13}{BG BLUE}{FGB BLUE}List Games: ");
+    output("[M]y Games ");
+    output("[J]oinable Games ");
+    output("[C]ompleted Games");
 
-    output("{FG CYAN}{BG BLACK}{CPOS 23 15}");
-    output("Use cursor {FGB WHITE}UP/DOWN{FG CYAN} and {FGB WHITE}ENTER{FG CYAN} to select a game.");
+    output("{FGB BLUE{BG BLACK}{CPOS 23 15}");
+    output("Use cursor {FGB WHITE}UP/DOWN{FGB BLUE} and {FGB WHITE}ENTER{FGB BLUE} to select a game.");
 }
 
 void show_games(int game_type, int selected_game_index, BOOL redraw_game_ui) {
@@ -144,11 +144,11 @@ void show_main_menu(void) {
         if (redraw) {
             output("{CLEARROWS 9 23 BG BLACK}");
 
-            output("{CPOS 11 20}");
-            output("{FGB WHITE}N{FGB BLUE}ew Game, ");
-            output("{FGB WHITE}S{FGB BLUE}ettings, ");
-            output("{FGB WHITE}H{FGB BLUE}elp, ");
-            output("{FGB WHITE}Q{FGB BLUE}uit to BBS");
+            output("{CPOS 11 20}{FGB BLUE}");
+            output("[N]ew Game ");
+            output("[S]ettings ");
+            output("[H]elp ");
+            output("[Q]]uit to BBS");
 
             show_games(cur_game_type, selected_game_index, TRUE);
 

@@ -17,6 +17,11 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    output("{CLS}{FG RED}{CENTER 3**** NOTICE ****}\n\n{FG MAGENTA}Mad Dictator {FG GREEN}is a work in progress and many features are not implemented yet.\n");
+    output("Send bugs and comments to {FG WHITE}KEVINUM{FG GREEN} via mail on this BBS.\n");
+    output("\nEnjoy the game! {FG YELLOW}Press any key...");
+    getkey();
+
     srand(time(NULL));
     user_context.player_id = atoi(argv[1]);
     strncpy(user_context.handle, argv[2], PLAYER_HANDLE_LEN);

@@ -1,0 +1,26 @@
+LISTGAMES
+    Game Name
+    Description
+    Status (wait start, in progress, paused, completed)
+    Map Name
+    Player List (1=owner, 2-4=players)
+    Password Required
+    Start date
+
+NEWGAME
+    Player ID
+    Game name
+    Description
+    Map Name
+    Required Players (2-4)
+    Password
+
+JOINGAME
+    Player ID
+    Game Name
+    Password
+
+
+
+
+

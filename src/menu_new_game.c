@@ -53,27 +53,27 @@ void do_new_game_menu(char *result_message) {
     do {
         if (redraw) {
             output("{FG WHITE}");
-            output("{WINDOW 9 10 23 72 BLUE BLACK}{FGB WHITE}{CENTER 9 START NEW GAME}");
+            output("{WINDOW 9 10 23 74 BLUE BLACK}{FGB WHITE}{CENTER 9 START NEW GAME}");
 
-            output("{CPOS 11 12}{BG BLACK}{FGB WHITE}T{FGB BLUE}itle");
-            show_field_value(11, 31, GAME_NAME_LEN, game_name,temp);
+            output("{CPOS 11 12}{BG BLACK}{FGB BLUE}[T]itle");
+            show_field_value(11, 33, GAME_NAME_LEN, game_name,temp);
 
-            output("{CPOS 12 12}{BG BLACK}{FGB WHITE}D{FGB BLUE}escription");
-            show_field_value(12, 31, GAME_DESC_LEN, game_desc,temp);
+            output("{CPOS 12 12}{BG BLACK}{FGB BLUE}[D]escription");
+            show_field_value(12, 33, GAME_DESC_LEN, game_desc,temp);
 
-            output("{CPOS 13 12}{BG BLACK}{FGB WHITE}M{FGB BLUE}ap");
-            show_field_value(13, 31, MAP_NAME_LEN, c,temp);
+            output("{CPOS 13 12}{BG BLACK}{FGB BLUE}[M]ap");
+            show_field_value(13, 33, MAP_NAME_LEN, c,temp);
 
-            output("{CPOS 14 12}{BG BLACK}{FGB WHITE}P{FGB BLUE}layers (2-4)");
-            show_field_value(14, 31, 1, game_players, temp);
+            output("{CPOS 14 12}{BG BLACK}{FGB BLUE}[P]layers (2-4)");
+            show_field_value(14, 33, 1, game_players, temp);
 
-            output("{CPOS 15 12}{BG BLACK}{FGB WHITE}Q{FGB BLUE}uick Turns (1-99)");
-            show_field_value(15, 31, 2, game_quickturns, temp);
+            output("{CPOS 15 12}{BG BLACK}{FGB BLUE}[Q]uick Turns (1-99)");
+            show_field_value(15, 33, 2, game_quickturns, temp);
 
-            output("{CPOS 16 12}{BG BLACK}{FGB BLUE}P{FGB WHITE}a{FGB BLUE}ssword");
-            show_field_value(16, 31, PASSWORD_LEN, game_password, temp);
+            output("{CPOS 16 12}{BG BLACK}{FGB BLUE}P[a]ssword");
+            show_field_value(16, 33, PASSWORD_LEN, game_password, temp);
 
-            output("{CPOS 18 12}{BG BLACK}{FG GREEN}Options: {BG BLACK}{FGB WHITE}C{FG CYAN}reate Game, Go {FGB WHITE}B{FG CYAN}ack");
+            output("{CPOS 18 12}{BG BLACK}{FG GREEN}Options: {BG BLACK}{FGB BLUE}[C]reate Game [B]ack");
 
             output("{FG GREEN}{CENTER 21 Select a field to change or an option:}");
 
@@ -86,22 +86,22 @@ void do_new_game_menu(char *result_message) {
 
         switch (m) {
             case 'T':
-                text_field_at(11, 31, game_name, GAME_NAME_LEN, NULL);
+                text_field_at(11, 33, game_name, GAME_NAME_LEN, NULL);
                 break;
             case 'D':
-                text_field_at(12, 31, game_desc, GAME_DESC_LEN, NULL);
+                text_field_at(12, 33, game_desc, GAME_DESC_LEN, NULL);
                 break;
             case 'M':
                 output("{BELL}{BG BLACK}{CPOS 17 11}                                                             }{FGB RED}{BG BLACK}{CENTER 17 Sorry, there is only one map available right now...}");
                 break;
             case 'P':
-                text_field_at(14, 31, game_players, 1, "234");
+                text_field_at(14, 33, game_players, 1, "234");
                 break;
             case 'Q':
-                text_field_at(15, 31, game_quickturns, 2, "1234567890");
+                text_field_at(15, 33, game_quickturns, 2, "1234567890");
                 break;
             case 'A':
-                text_field_at(16, 31, game_password, PASSWORD_LEN, NULL);
+                text_field_at(16, 33, game_password, PASSWORD_LEN, NULL);
                 break;
             case 'B':
                 keep_looping = FALSE;
