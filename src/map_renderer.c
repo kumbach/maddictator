@@ -1,23 +1,23 @@
 #include "/include/map_renderer.h"
 
-int offset_row, offset_col;
-int disp_rows, disp_cols;
-int map_rows, map_cols;
+int offset_y, offset_x;
+int view_height, view_width;
+int map_height, map_width;
 char *terrain;
 char *map_temp;
 char *row_temp;
 
-void init_renderer(GameData *game_data, int rows, int cols) {
+void init_renderer(GameData *game_data, int width, int height) {
     map_temp = malloc(512);
     row_temp = malloc(512);
 
     terrain = game_data->terrain;
-    disp_rows = rows;
-    disp_cols = cols;
-    offset_col = 0;
-    offset_row = 0;
-    map_rows = game_data->map_rows;
-    map_cols = game_data->map_cols;
+    view_height = height;
+    view_width = width;
+    offset_x = 0;
+    offset_y = 0;
+    map_height = game_data->map_height;
+    map_width = game_data->map_width;
 }
 
 void cleanup_renderer() {
@@ -31,38 +31,37 @@ void cleanup_renderer() {
     }
 }
 
-BOOL scroll_map(int rows, int cols) {
-    offset_row += rows;
-    if (offset_row < 0) {
-        offset_row = 0;
-    }
-    else if (offset_row > map_rows - disp_rows - 1) {
-        offset_row = map_rows - disp_rows;
+BOOL scroll_map(int ox, int oy) {
+    if (view_width != map_width) {
+        offset_x += ox;
+        if (offset_x < 0) {
+            offset_x = map_width;
+        }
     }
 
-    offset_col += cols;
-    if (offset_col < 0) {
-        offset_col = 0;
-    }
-    else if (offset_col > map_cols - disp_cols - 1) {
-        offset_col = map_cols - disp_cols;
+    if (view_height != map_height) {
+        offset_y += oy;
+        if (offset_y < 0) {
+            offset_y = map_height;
+        }
     }
 
     return TRUE;
 }
 
 void render_map() {
-    int row, col;
+    int y, x;
+
     char *p;
     int cur_color = CYAN_BG;
-
     output("{FGB WHITE}{BG CYAN}{CHIDE}");
-    for (row = 0; row < disp_rows; ++row) {
-        sprintf(row_temp, "{CPOS %d 2}", row + 4);
-        output(row_temp);
 
-        p = terrain + ((row + offset_row) * map_cols) + offset_col;
-        for (col = 1; col <= disp_cols; ++col) {
+    for (y = 0; y < view_height; ++y) {
+        sprintf(row_temp, "{CPOS %d 2}", y + 4);
+        output(row_temp);
+        for (x = 0; x < view_width; ++x) {
+            p = terrain + ((x + offset_x) % map_width) +
+                    (((y + offset_y) % map_height) * map_width);
             switch (*p) {
                 case '~':
                     if (cur_color != BLUE_BG) {

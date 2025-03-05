@@ -41,8 +41,8 @@ typedef struct MapFile {
 } MapFile;
 
 typedef struct GameData {
-    int map_rows;
-    int map_cols;
+    int map_height;
+    int map_width;
     char *terrain;
     char *owners;
     char *fog[MAX_PLAYERS];

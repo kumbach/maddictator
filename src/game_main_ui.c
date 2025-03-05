@@ -19,7 +19,7 @@ void draw_frame(void) {
     output("{FG CYAN}{CPOS 1 2}");
     output(game_file->name);
 
-    output("{VBAR 60 3 20 BLUE}");
+    output("{FG BLUE}{VBAR 60 3 20 BLUE}");
     output("{HLINE 2 2 78 BLUE}");
 }
 
@@ -51,10 +51,10 @@ enum CommandResult process_command(char command) {
             return OK_REDRAW;
 
         case '1':
-            scroll_map(1, -1);
+            scroll_map(-1, 1);
             return OK_REDRAW_MAP;
         case '2':
-            scroll_map(1, 0);
+            scroll_map(0, 1);
             return OK_REDRAW_MAP;
         case '3':
             scroll_map(1, 1);
@@ -64,18 +64,19 @@ enum CommandResult process_command(char command) {
             scroll_map(-1, -1);
             return OK_REDRAW_MAP;
         case '8':
-            scroll_map(-1, 0);
+            scroll_map(0, -1);
             return OK_REDRAW_MAP;
         case '9':
-            scroll_map(-1, 1);
+            scroll_map(1, -1);
             return OK_REDRAW_MAP;
 
         case '4':
-            scroll_map(0, -1);
+            scroll_map(-1, 0);
             return OK_REDRAW_MAP;
         case '6':
-            scroll_map(0,1);
+            scroll_map(1, 0);
             return OK_REDRAW_MAP;
+
         case 'I':
             sprintf(ui_buf, "{CPOS 4 2}{FG WHITE}{BG BLUE}cur_idx:%d", game_file->cur_player_index);
             output(ui_buf);
@@ -108,7 +109,7 @@ void play_game(int game_id, char *game_name) {
         getkey();
         return;
     }
-    init_renderer(&game_data, 16, 58);
+    init_renderer(&game_data, 58, 16);
 
     do {
         if (result == OK_REDRAW) {

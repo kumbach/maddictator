@@ -8,6 +8,7 @@
 #include "game_manager.h"
 #include "map_renderer.h"
 
+char get_command();
 void play_game(int game_id, char *game_name);
 
 #endif //CNETDOOR_GAME_MAIN_UI_H

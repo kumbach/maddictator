@@ -8,7 +8,7 @@ BOOL *init_game_data(char *map_name, GameData *game_data) {
     char *p;
     int ch;
     FILE *file;
-    int rows, cols, num_players, mem_size;
+    int height, width, num_players, mem_size;
 
     sprintf(buf, "MAD_DICT:maps/%s.map", map_name);
 
@@ -19,11 +19,11 @@ BOOL *init_game_data(char *map_name, GameData *game_data) {
     }
 
     fgets(buf, 255, file);  // description
-    fscanf(file, "%d %d %d", &num_players, &rows, &cols);
+    fscanf(file, "%d %d %d", &num_players, &width, &height);
 
-    mem_size = rows * cols;
-    game_data->map_rows = rows;
-    game_data->map_cols = cols;
+    mem_size = width * height;
+    game_data->map_width = width;
+    game_data->map_height = height;
 
     game_data->terrain = malloc(mem_size);
     memset(game_data->terrain, 0, mem_size);
@@ -43,6 +43,7 @@ BOOL *init_game_data(char *map_name, GameData *game_data) {
     game_data->fog[3] = malloc(mem_size);
     memset(game_data->fog[3], 0, mem_size);
 
+    // Read the map into memory
     p = game_data->terrain;
     ch = fgetc(file);
     while (ch != EOF) {

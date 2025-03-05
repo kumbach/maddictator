@@ -111,7 +111,7 @@ void show_menu_options(BOOL is_host, BOOL is_in_game, GameFile *game, char *allo
         strcpy(allowed_keys, "RELB");
     }
     else if (is_in_game) {
-        output("{CPOS 20 12}{FG GREEN}Select: {FGB BLUE}[E]]nter Game [B]ack");
+        output("{CPOS 20 12}{FG GREEN}Select: {FGB BLUE}[E]nter Game [B]ack");
         strcpy(allowed_keys, "REB");
     }
     else {

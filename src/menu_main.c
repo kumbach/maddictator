@@ -148,7 +148,7 @@ void show_main_menu(void) {
             output("[N]ew Game ");
             output("[S]ettings ");
             output("[H]elp ");
-            output("[Q]]uit to BBS");
+            output("[Q]uit to BBS");
 
             show_games(cur_game_type, selected_game_index, TRUE);
 
